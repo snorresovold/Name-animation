@@ -1,49 +1,52 @@
-{
-    paddin: 0;
-    margin. 0;
-    font-family: comic-sans;
+body {
+    background: #000000; 
+    margin: 0;
+  padding: 0;
 }
-body{
-    background: #000;
+.txt {
+    color: #ffffff;
+    background:#000000;
+    font-size:200px;
+    font-weight: bold;
+    font-family: Arial;
+    text-transform: uppercase;
 }
-.container{
-    text-align: center;
+.txt::before {
+    content: 'snorre';
+    position: absolute;
+    mix-blend-mode: difference;
+    filter: blur(3px);
+}
+.neon-wrapper {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
+    display:inline-flex;
+    filter: brightness(300%);
+    overflow: hidden;
+}
+.gradient{
+    background: linear-gradient(114.5793141156962deg, rgba(6, 227, 250,1) 4.927083333333334%,rgba(229, 151, 64,1) 97.84374999999999%);
+    position: absolute;
+    top: 0;
+    left:0;
     width: 100%;
+    height:100%;
+    mix-blend-mode: multiply;
 }
-.container span{
-    color: white;
-    text-transform: uppercase;
-    display: block;
+.dodge {
+    background: radial-gradient(circle,white,black 35%) center / 25% 25%;
+    position: absolute;
+    top:-100%;
+    left:-100%;
+    right:0;
+    bottom:0;
+    mix-blend-mode: color-dodge;
+    animation: dodge-area 3s linear infinite;
 }
-.text1{
-    font-size: 60px;
-    font-weight: 700;
-    letter-spacing: 8px;
-    margin-bottom: 20px;
-    background: black;
-    position: relative;
-    animation: text 3s 1;
-}
-.text2{
-    font-size: 30px;
-    color: #6ab04c;
-}
-
-@keyframes text{
-    0%{
-        color: black;
-        margin-bottom: -40px;
-    }
-    30%{
-        letter-spacing: 25px;
-        margin-bottom: -40px;
-    }
-    85%{
-        letter-spacing: 8px;
-        margin-bottom: -40px;
+@keyframes dodge-area {
+    to {
+        transform: translate(50%,50%);
     }
 }
