@@ -1,0 +1,115 @@
+body {
+    background: black;
+    font-family: "Oswald", sans-serif;
+    font-style: italic;
+  }/*gir body ein backgrunn font og style */
+
+  .container {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 40%;
+    left: 50%;
+  }/*gir container forskjellig statistikk om kor stor skjermen skal vere */
+  
+  .glitch {
+    color: rgb(223, 191, 191);
+    position: relative;
+    font-size: 9vw;
+    margin: 70px 200px;
+    animation: glitch 5s 5s infinite;
+  }/*lager glitch effekten */
+  
+  .glitch::before {
+    content: attr(data-text);
+    position: absolute;
+    left: -2px;
+    text-shadow: -5px 0 magenta;
+    background: black;
+    overflow: hidden;
+    top: 0;
+    animation: noise-1 3s linear infinite alternate-reverse, glitch 5s 5.05s infinite;
+  }/*lager glitch effekten */
+  
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 2px;
+    text-shadow: -5px 0 lightgreen;
+    background: black;
+    overflow: hidden;
+    top: 0;
+    animation: noise-2 3s linear infinite alternate-reverse, glitch 5s 5s infinite;
+  }/*lager glitch effekten */
+  
+  @keyframes glitch {
+    1%{
+      transform: rotateX(10deg) skewX(90deg);
+    }
+    2%{
+      transform: rotateX(0deg) skewX(0deg);
+    }
+  }/*lager glitch effekten */
+  
+  @keyframes noise-1 {
+    $steps: 30;
+    @for $i from 1 through $steps {
+      #{percentage($i*(1/$steps))} {
+        $top: random(100);
+        $bottom: random(101 - $top);
+        clip-path: inset(#{$top}px 0 #{$bottom}px 0);
+      }/*lager støy i bildet */
+    }
+  }
+  
+  @keyframes noise-2 {
+    $steps: 30;
+    @for $i from 0 through $steps {
+      #{percentage($i*(1/$steps))} {
+        $top: random(100);
+        $bottom: random(101 - $top);
+        clip-path: inset(#{$top}px 0 #{$bottom}px 0);
+      }/*lager støy i bildet */
+    }
+  }
+  
+  .scanlines {
+    overflow: hidden;
+    mix-blend-mode: difference;
+  }/*lager scanlines */
+  
+  .scanlines::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(255, 255, 255, 0.05) .5%,
+      transparent 1%
+    );
+  
+    animation: fudge 7s ease-in-out alternate infinite;
+  }/*får scanlines til å bevege seg */
+
+  .glow {
+    @extend .glitch;
+    text-shadow: 0 0 1000px rgb(223, 191, 191);
+    color: transparent;
+    position: absolute;
+    top: 0;
+  }/*lager ein glow effekt */
+
+  @keyframes glitch-2 {
+    1%{
+      transform: rotateX(10deg) skewX(70deg);
+    }
+    2%{
+      transform: rotateX(0deg) skewX(0deg);
+    }/*er med på å lage glitch effekten */
+  }
+  
+  
