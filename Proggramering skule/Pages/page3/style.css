@@ -43,7 +43,7 @@
     -ms-animation: square-to-circle 2s 1s infinite cubic-bezier(1,.015,.295,1.225) alternate;
     -o-animation: square-to-circle 2s 1s infinite cubic-bezier(1,.015,.295,1.225) alternate;
     animation: square-to-circle 2s 1s infinite cubic-bezier(1,.015,.295,1.225) alternate;
-    /*diverse statistikk box/sirkelen har*/
+    /*diverse verdier box/sirkelen har*/
     position: relative;
     top: 50%;
     transform: translateY(-50%);
